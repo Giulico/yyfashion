@@ -28,43 +28,18 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors);
     }
 
-    const posts = result.data.allMarkdownRemark.edges;
+    const templates = result.data.allMarkdownRemark.edges;
 
-    posts.forEach(edge => {
+    templates.forEach(edge => {
       const id = edge.node.id;
       createPage({
         path: edge.node.fields.slug,
-        tags: edge.node.frontmatter.tags,
         component: path.resolve(
           `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
         ),
         // additional data can be passed via context
         context: {
           id
-        }
-      });
-    });
-
-    // Tag pages:
-    let tags = [];
-    // Iterate through each post, putting all found tags into `tags`
-    posts.forEach(edge => {
-      if (_.get(edge, `node.frontmatter.tags`)) {
-        tags = tags.concat(edge.node.frontmatter.tags);
-      }
-    });
-    // Eliminate duplicate tags
-    tags = _.uniq(tags);
-
-    // Make tag pages
-    tags.forEach(tag => {
-      const tagPath = `/tags/${_.kebabCase(tag)}/`;
-
-      createPage({
-        path: tagPath,
-        component: path.resolve(`src/templates/tags.js`),
-        context: {
-          tag
         }
       });
     });
@@ -82,5 +57,17 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       value
     });
+  }
+};
+
+// Fix to: React-Hot-Loader: react-🔥-dom patch is not detected. React 16.6+ features may not work.
+// Issue: https://github.com/gatsbyjs/gatsby/issues/11934
+exports.onCreateWebpackConfig = ({ getConfig, stage }) => {
+  const config = getConfig();
+  if (stage.startsWith("develop") && config.resolve) {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "react-dom": "@hot-loader/react-dom"
+    };
   }
 };
