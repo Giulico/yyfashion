@@ -1,7 +1,6 @@
 ---
 templateKey: index-page
-path: /
-title: Homepage
+title: /
 hero: /img/blog-index.jpg
 video: /img/chemex.jpg
 image1: /img/coffee-gear.png
