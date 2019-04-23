@@ -3,55 +3,43 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 
 export const IndexPageTemplate = ({
-  image,
   title,
-  heading,
-  subheading,
-  mainpitch,
-  description,
-  intro
+  hero,
+  video,
+  image1,
+  image2,
+  image3,
+  footer
 }) => (
   <div>
-    <h1>Title: {title}</h1>
-    <h3>{subheading}</h3>
-    <section>
-      <h1>{mainpitch.title}</h1>
-      <h3>{mainpitch.description}</h3>
-      <h3>{heading}</h3>
-      <p>{description}</p>
-      <Link to="/products">See all products</Link>
-      <h3>Latest stories</h3>
-    </section>
+    <h1>{title}</h1>
   </div>
 )
 
 IndexPageTemplate.propTypes = {
-  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
-  heading: PropTypes.string,
-  subheading: PropTypes.string,
-  mainpitch: PropTypes.object,
-  description: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array
-  })
+  hero: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  video: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  image1: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  image2: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  image3: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  footer: PropTypes.oneOfType([PropTypes.object, PropTypes.string])
 }
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
-  return <p>placeholder</p>
-  // return (
-  //   <IndexPageTemplate
-  //     image={frontmatter.image}
-  //     title={frontmatter.title}
-  //     heading={frontmatter.heading}
-  //     subheading={frontmatter.subheading}
-  //     mainpitch={frontmatter.mainpitch}
-  //     description={frontmatter.description}
-  //     intro={frontmatter.intro}
-  //   />
-  // );
+  return (
+    <IndexPageTemplate
+      title={frontmatter.title}
+      hero={frontmatter.hero}
+      video={frontmatter.video}
+      image1={frontmatter.image1}
+      image2={frontmatter.image2}
+      image3={frontmatter.image3}
+      footer={frontmatter.footer}
+    />
+  )
 }
 
 IndexPage.propTypes = {
@@ -68,7 +56,43 @@ export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
+        title
         hero {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        video {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        image1 {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        image2 {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        image3 {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        footer {
           childImageSharp {
             fluid(maxWidth: 2048, quality: 100) {
               ...GatsbyImageSharpFluid

@@ -32,8 +32,10 @@ exports.createPages = ({ actions, graphql }) => {
 
     templates.forEach(edge => {
       const id = edge.node.id
+      const slug =
+        edge.node.fields.slug === '/homepage/' ? '/' : edge.node.fields.slug
       createPage({
-        path: edge.node.fields.slug,
+        path: slug,
         component: path.resolve(
           `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
         ),
