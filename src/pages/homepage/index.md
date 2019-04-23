@@ -1,7 +1,7 @@
 ---
 templateKey: index-page
 title: /
-hero: /img/blog-index.jpg
+hero: /img/hero.jpg
 video: /img/chemex.jpg
 image1: /img/coffee-gear.png
 image2: /img/coffee.png
