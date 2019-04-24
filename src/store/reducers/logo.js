@@ -1,5 +1,8 @@
 const defaultState = {
-  pinned: window && window.location && window.location.pathname === '/'
+  pinned:
+    typeof window !== 'undefined' &&
+    window.location &&
+    window.location.pathname === '/'
 }
 
 // function reducer
