@@ -1,7 +1,7 @@
 ---
 templateKey: index-page
 title: Yellow and Yellow Fashion
-hero: /img/hero.jpg
+hero: /img/hero-c.jpg
 video: /img/chemex.jpg
 image1: /img/coffee-gear.png
 image2: /img/coffee.png
