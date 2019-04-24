@@ -5,6 +5,8 @@ const defaultState = {
     window.location.pathname === '/'
 }
 
+console.log('logo default state', defaultState)
+
 // function reducer
 const logo = (state = defaultState, { type, payload }) => {
   switch (type) {
