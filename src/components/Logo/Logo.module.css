@@ -1,0 +1,29 @@
+.root {
+  position: fixed;
+  top: 1%;
+  left: 3%;
+  max-width: 40px;
+  transform: translate3d(0, 0, 0);
+  transition: all 0.5s ease-in-out;
+  backface-visibility: hidden;
+  will-change: top, left, transform;
+}
+
+@media (--tablet) {
+  .root {
+    max-width: 80px;
+  }
+}
+
+@media (--desktop) {
+  .root {
+    left: 1%;
+  }
+}
+
+.pinned {
+  top: 50%;
+  left: 50%;
+  max-width: 120px;
+  transform: translate3d(-50%, -50%, 0);
+}

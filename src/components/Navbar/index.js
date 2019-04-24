@@ -1,6 +1,5 @@
 import React from 'react'
 import classNames from 'classnames'
-import { Link } from 'gatsby'
 import logo from '../../img/logo.svg'
 import NavbarItem from './NavbarItem'
 
@@ -9,6 +8,10 @@ import style from './Navbar.module.css'
 
 // Components
 import Burger from '../Burger'
+import Logo from '../Logo'
+
+// Img
+import LogoImg from '../../assets/images/yy-logo.jpg'
 
 const Navbar = class extends React.Component {
   state = {
@@ -30,11 +33,8 @@ const Navbar = class extends React.Component {
       >
         <Burger isActive={active} onClick={this.toggleHamburger} />
 
-        <div className={style.brand}>
-          <Link to="/" className="navbar-item" title="Logo">
-            <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
-          </Link>
-        </div>
+        <Logo src={LogoImg} alt="Yellow and Yellow Fashion" pinned={true} />
+
         <div className={navbarClasses}>
           <ul className={style.items}>
             <NavbarItem className="navbar-item" to="/about" index={1}>

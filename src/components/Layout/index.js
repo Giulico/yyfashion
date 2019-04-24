@@ -6,6 +6,7 @@ import useSiteMetadata from '../SiteMetadata'
 
 // Styles
 import '../../styles/app.css'
+import style from './Layout.module.css'
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata()
@@ -46,7 +47,7 @@ const TemplateWrapper = ({ children }) => {
         <meta property="og:image" content="/img/og-image.jpg" />
       </Helmet>
       <Navbar />
-      <div>{children}</div>
+      <div className={style.main}>{children}</div>
       <Footer />
     </div>
   )
