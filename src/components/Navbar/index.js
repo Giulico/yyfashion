@@ -1,6 +1,5 @@
 import React from 'react'
 import classNames from 'classnames'
-import logo from '../../img/logo.svg'
 import NavbarItem from './NavbarItem'
 
 // Style

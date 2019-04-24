@@ -9,10 +9,13 @@ const Logo = ({ pinned, src, alt }) => {
   const { state, dispatch } = useStore()
   const { logo } = state
 
+  console.log('Logo', logo)
   // componentDidMount
   useEffect(() => {
+    console.log('Logo useEffect', logo)
     if (logo.pinned) {
       setTimeout(() => {
+        console.log('Logo useEffect setTimeout callback', logo)
         dispatch({ type: 'UNPIN_LOGO' })
       }, 2000)
     }
