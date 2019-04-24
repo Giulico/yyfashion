@@ -1,5 +1,12 @@
 .video {
   position: relative;
+  z-index: 100;
   max-width: 80%;
   margin: 85vh auto 0;
+}
+
+.image1 {
+  position: relative;
+  max-width: 73%;
+  margin: 5% 0 0 15%;
 }

@@ -22,13 +22,14 @@ export const IndexPageTemplate = ({
   return (
     <div>
       <Hero alt={title} hero={hero} />
-      <Parallax y={[-20, 20]}>
-        <div className={style.video}>
-          <Img fluid={video.childImageSharp.fluid} />
-        </div>
+      <Parallax y={[-20, 20]} className={style.video}>
+        <Img fluid={video.childImageSharp.fluid} />
       </Parallax>
       <div className={style.image1}>
         <Img fluid={image1.childImageSharp.fluid} />
+      </div>
+      <div className={style.image2}>
+        <Img fluid={image2.childImageSharp.fluid} />
       </div>
     </div>
   )
