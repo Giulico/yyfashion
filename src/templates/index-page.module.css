@@ -8,5 +8,11 @@
 .image1 {
   position: relative;
   max-width: 73%;
-  margin: 5% 0 0 15%;
+  margin: 5% 0 0 20%;
+}
+
+.image2 {
+  position: relative;
+  max-width: 63%;
+  margin: 5% 0 0 14%;
 }

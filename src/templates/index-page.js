@@ -28,9 +28,9 @@ export const IndexPageTemplate = ({
       <div className={style.image1}>
         <Img fluid={image1.childImageSharp.fluid} />
       </div>
-      <div className={style.image2}>
+      <Parallax y={[-30, 10]} className={style.image2}>
         <Img fluid={image2.childImageSharp.fluid} />
-      </div>
+      </Parallax>
     </div>
   )
 }

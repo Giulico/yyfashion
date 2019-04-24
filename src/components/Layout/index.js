@@ -1,13 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import Provider from 'redhooks'
-import { ParallaxProvider } from 'react-scroll-parallax'
 import Footer from '../Footer'
 import Navbar from '../Navbar'
 import useSiteMetadata from '../SiteMetadata'
-
-// Store
-import store from '../../store'
 
 // Styles
 import '../../styles/app.css'
@@ -16,47 +11,45 @@ import style from './Layout.module.css'
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata()
   return (
-    <Provider store={store}>
-      <ParallaxProvider>
-        <Helmet title={title}>
-          <html lang="en" />
-          <meta name="description" content={description} />
+    <>
+      <Helmet title={title}>
+        <html lang="en" />
+        <meta name="description" content={description} />
 
-          <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/img/apple-touch-icon.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            href="/img/favicon-32x32.png"
-            sizes="32x32"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            href="/img/favicon-16x16.png"
-            sizes="16x16"
-          />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/img/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          href="/img/favicon-32x32.png"
+          sizes="32x32"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          href="/img/favicon-16x16.png"
+          sizes="16x16"
+        />
 
-          <link
-            rel="mask-icon"
-            href="/img/safari-pinned-tab.svg"
-            color="#ff4400"
-          />
-          <meta name="theme-color" content="#fff" />
+        <link
+          rel="mask-icon"
+          href="/img/safari-pinned-tab.svg"
+          color="#ff4400"
+        />
+        <meta name="theme-color" content="#fff" />
 
-          <meta property="og:type" content="business.business" />
-          <meta property="og:title" content={title} />
-          <meta property="og:url" content="/" />
-          <meta property="og:image" content="/img/og-image.jpg" />
-        </Helmet>
-        <Navbar />
-        <div className={style.main}>{children}</div>
-        <Footer />
-      </ParallaxProvider>
-    </Provider>
+        <meta property="og:type" content="business.business" />
+        <meta property="og:title" content={title} />
+        <meta property="og:url" content="/" />
+        <meta property="og:image" content="/img/og-image.jpg" />
+      </Helmet>
+      <Navbar />
+      <div className={style.main}>{children}</div>
+      <Footer />
+    </>
   )
 }
 

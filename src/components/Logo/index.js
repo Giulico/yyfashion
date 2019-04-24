@@ -17,10 +17,12 @@ const Logo = ({ pinned, src, alt }) => {
   // componentDidMount
   useEffect(() => {
     if (isHome) {
+      document.body.style.overflow = 'hidden'
       dispatch({ type: 'PIN_LOGO' })
     }
     if (logo.pinned) {
       setTimeout(() => {
+        document.body.style.overflow = ''
         dispatch({ type: 'UNPIN_LOGO' })
       }, 2000)
     }
