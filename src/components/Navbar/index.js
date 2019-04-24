@@ -4,62 +4,56 @@ import { Link } from 'gatsby'
 import logo from '../../img/logo.svg'
 import NavbarItem from './NavbarItem'
 
+// Style
+import style from './Navbar.module.css'
+
+// Components
+import Burger from '../Burger'
+
 const Navbar = class extends React.Component {
   state = {
-    active: false,
-    navBarActiveClass: ''
+    active: false
   }
 
   render() {
     const { active } = this.state
-    const burgerClasses = classNames({
-      'is-active': active
+    const navbarClasses = classNames({
+      [style.navbar]: true,
+      [style.active]: active
     })
+
     return (
       <nav
-        className="navbar is-transparent"
+        className={style.root}
         role="navigation"
         aria-label="main-navigation"
       >
-        <div className="container">
-          <div className="navbar-brand">
-            <Link to="/" className="navbar-item" title="Logo">
-              <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
-            </Link>
-            {/* Hamburger menu */}
-            <div
-              className={`navbar-burger burger ${burgerClasses}`}
-              data-target="navMenu"
-              onClick={this.toggleHamburger}
+        <Burger isActive={active} onClick={this.toggleHamburger} />
+
+        <div className={style.brand}>
+          <Link to="/" className="navbar-item" title="Logo">
+            <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
+          </Link>
+        </div>
+        <div className={navbarClasses}>
+          <ul className={style.items}>
+            <NavbarItem className="navbar-item" to="/about" index={1}>
+              About
+            </NavbarItem>
+            <NavbarItem className="navbar-item" to="/products" index={2}>
+              Products
+            </NavbarItem>
+            <NavbarItem className="navbar-item" to="/contact" index={3}>
+              Contact
+            </NavbarItem>
+            <NavbarItem
+              className="navbar-item"
+              to="/contact/examples"
+              index={4}
             >
-              <span />
-              <span />
-              <span />
-            </div>
-          </div>
-          <div
-            id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}
-          >
-            <div className="navbar-start has-text-centered">
-              <NavbarItem className="navbar-item" to="/about" index={1}>
-                About
-              </NavbarItem>
-              <NavbarItem className="navbar-item" to="/products" index={2}>
-                Products
-              </NavbarItem>
-              <NavbarItem className="navbar-item" to="/contact" index={3}>
-                Contact
-              </NavbarItem>
-              <NavbarItem
-                className="navbar-item"
-                to="/contact/examples"
-                index={4}
-              >
-                Form Examples
-              </NavbarItem>
-            </div>
-          </div>
+              Form Examples
+            </NavbarItem>
+          </ul>
         </div>
       </nav>
     )

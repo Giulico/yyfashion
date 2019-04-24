@@ -1,9 +1,9 @@
-var proxy = require("http-proxy-middleware");
+var proxy = require('http-proxy-middleware')
 
 module.exports = {
   siteMetadata: {
-    title: "Yellow & Yellow Fashion",
-    description: "Urban streatware"
+    title: 'Yellow & Yellow Fashion',
+    description: 'Urban streatware'
   },
   plugins: [
     {
@@ -12,52 +12,53 @@ module.exports = {
         component: require.resolve(`./src/components/Layout`)
       }
     },
-    "gatsby-plugin-react-helmet",
+    'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
         postCssPlugins: [
-          require("postcss-nesting")(),
+          require('postcss-custom-media')(),
+          require('postcss-nesting')(),
           require(`postcss-preset-env`)({ stage: 0 })
         ]
       }
     },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/static/img`,
-        name: "uploads"
+        name: 'uploads'
       }
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/pages`,
-        name: "pages"
+        name: 'pages'
       }
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/img`,
-        name: "images"
+        name: 'images'
       }
     },
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     {
-      resolve: "gatsby-transformer-remark",
+      resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
           {
-            resolve: "gatsby-remark-relative-images",
+            resolve: 'gatsby-remark-relative-images',
             options: {
-              name: "uploads"
+              name: 'uploads'
             }
           },
           {
-            resolve: "gatsby-remark-images",
+            resolve: 'gatsby-remark-images',
             options: {
               // It's important to specify the maxWidth (in pixels) of
               // the content container as this plugin uses this as the
@@ -66,33 +67,33 @@ module.exports = {
             }
           },
           {
-            resolve: "gatsby-remark-copy-linked-files",
+            resolve: 'gatsby-remark-copy-linked-files',
             options: {
-              destinationDir: "static"
+              destinationDir: 'static'
             }
           }
         ]
       }
     },
     {
-      resolve: "gatsby-plugin-netlify-cms",
+      resolve: 'gatsby-plugin-netlify-cms',
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`
       }
     },
-    "gatsby-plugin-netlify" // make sure to keep it last in the array
+    'gatsby-plugin-netlify' // make sure to keep it last in the array
   ],
   // for avoiding CORS while developing Netlify Functions locally
   // read more: https://www.gatsbyjs.org/docs/api-proxy/#advanced-proxying
   developMiddleware: app => {
     app.use(
-      "/.netlify/functions/",
+      '/.netlify/functions/',
       proxy({
-        target: "http://localhost:9000",
+        target: 'http://localhost:9000',
         pathRewrite: {
-          "/.netlify/functions/": ""
+          '/.netlify/functions/': ''
         }
       })
-    );
+    )
   }
-};
+}

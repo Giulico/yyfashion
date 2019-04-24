@@ -1,6 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
+
+// Components
+import Hero from '../components/Hero'
 
 export const IndexPageTemplate = ({
   title,
@@ -10,11 +13,14 @@ export const IndexPageTemplate = ({
   image2,
   image3,
   footer
-}) => (
-  <div>
-    <h1>{title}</h1>
-  </div>
-)
+}) => {
+  return (
+    <div>
+      <h1>{title}</h1>
+      <Hero alt={title} hero={hero} />
+    </div>
+  )
+}
 
 IndexPageTemplate.propTypes = {
   title: PropTypes.string,
@@ -29,6 +35,7 @@ IndexPageTemplate.propTypes = {
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
+  console.log(frontmatter.hero)
   return (
     <IndexPageTemplate
       title={frontmatter.title}
