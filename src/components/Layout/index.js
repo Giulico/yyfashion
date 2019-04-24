@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Helmet from 'react-helmet'
+import Provider from 'redhooks'
 import Footer from '../Footer'
 import Navbar from '../Navbar'
 import useSiteMetadata from '../SiteMetadata'
+
+// Store
+import store from '../../store'
 
 // Styles
 import '../../styles/app.css'
@@ -11,7 +15,7 @@ import style from './Layout.module.css'
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata()
   return (
-    <div>
+    <Provider store={store}>
       <Helmet title={title}>
         <html lang="en" />
         <meta name="description" content={description} />
@@ -49,7 +53,7 @@ const TemplateWrapper = ({ children }) => {
       <Navbar />
       <div className={style.main}>{children}</div>
       <Footer />
-    </div>
+    </Provider>
   )
 }
 

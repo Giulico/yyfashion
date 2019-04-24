@@ -33,7 +33,7 @@ const Navbar = class extends React.Component {
       >
         <Burger isActive={active} onClick={this.toggleHamburger} />
 
-        <Logo src={LogoImg} alt="Yellow and Yellow Fashion" pinned={true} />
+        <Logo src={LogoImg} alt="Yellow and Yellow Fashion" />
 
         <div className={navbarClasses}>
           <ul className={style.items}>

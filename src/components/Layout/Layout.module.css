@@ -1,3 +1,9 @@
 .main {
   margin: 100px 8px 0px;
 }
+
+@media (--tablet) {
+  .main {
+    margin: 80px 8px 0px;
+  }
+}
