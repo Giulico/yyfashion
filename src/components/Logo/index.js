@@ -4,19 +4,23 @@ import { useStore } from 'redhooks'
 import { Link } from 'gatsby'
 // Style
 import style from './Logo.module.css'
-console.log('style', style)
+
+const isHome =
+  typeof window !== 'undefined' &&
+  window.location &&
+  window.location.pathname === '/'
 
 const Logo = ({ pinned, src, alt }) => {
   const { state, dispatch } = useStore()
   const { logo } = state
 
-  console.log('Logo', logo)
   // componentDidMount
   useEffect(() => {
-    console.log('Logo useEffect', logo)
+    if (isHome) {
+      dispatch({ type: 'PIN_LOGO' })
+    }
     if (logo.pinned) {
       setTimeout(() => {
-        console.log('Logo useEffect setTimeout callback', logo)
         dispatch({ type: 'UNPIN_LOGO' })
       }, 2000)
     }
@@ -27,17 +31,10 @@ const Logo = ({ pinned, src, alt }) => {
     [style.pinned]: logo.pinned
   })
 
-  console.log('classes', imgClasses)
-
   return (
-    <img
-      className={`${style.root} ${logo.pinned ? style.pinned : ''}`}
-      src={src}
-      alt={alt}
-    />
-    // <Link to="/" title={alt}>
-    //   <img className={imgClasses} src={src} alt={alt} />
-    // </Link>
+    <Link to="/" title={alt}>
+      <img className={imgClasses} src={src} alt={alt} />
+    </Link>
   )
 }
 
