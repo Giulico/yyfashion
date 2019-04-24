@@ -1,6 +1,6 @@
 ---
 templateKey: index-page
-title: /
+title: Yellow and Yellow Fashion
 hero: /img/hero.jpg
 video: /img/chemex.jpg
 image1: /img/coffee-gear.png
