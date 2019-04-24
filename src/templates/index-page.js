@@ -20,7 +20,6 @@ export const IndexPageTemplate = ({
 }) => {
   return (
     <div>
-      <h1>{title}</h1>
       <Hero alt={title} hero={hero} />
       <div className={style.video}>
         <Img fluid={video.childImageSharp.fluid} />
