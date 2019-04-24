@@ -4,6 +4,7 @@ import { useStore } from 'redhooks'
 import { Link } from 'gatsby'
 // Style
 import style from './Logo.module.css'
+console.log('style', style)
 
 const Logo = ({ pinned, src, alt }) => {
   const { state, dispatch } = useStore()
@@ -25,6 +26,8 @@ const Logo = ({ pinned, src, alt }) => {
     [style.root]: true,
     [style.pinned]: logo.pinned
   })
+
+  console.log('classes', imgClasses)
 
   return (
     <Link to="/" title={alt}>

@@ -1,9 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
 
 // Components
 import Hero from '../components/Hero'
+
+// Style
+import style from './index-page.module.css'
 
 export const IndexPageTemplate = ({
   title,
@@ -18,6 +22,9 @@ export const IndexPageTemplate = ({
     <div>
       <h1>{title}</h1>
       <Hero alt={title} hero={hero} />
+      <div className={style.video}>
+        <Img fluid={video.childImageSharp.fluid} />
+      </div>
     </div>
   )
 }
