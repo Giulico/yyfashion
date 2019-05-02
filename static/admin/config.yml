@@ -26,32 +26,32 @@ collections:
           - { label: 'Image 2', name: 'image2', widget: 'image' }
           - { label: 'Image 3', name: 'image3', widget: 'image' }
           - { label: 'Footer', name: 'footer', widget: 'image' }
-  - name: 'products'
-    label: 'Products Page'
-    file: 'src/pages/products/index.md'
-    fields:
-      - {
-          label: 'Template Key',
-          name: 'templateKey',
-          widget: 'hidden',
-          default: 'product-page',
-        }
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - label: 'Items'
-        name: 'items'
-        widget: 'list'
+      - name: 'products'
+        label: 'Products Page'
+        file: 'src/pages/products/index.md'
         fields:
-          - { label: 'Image', name: 'image', widget: 'image' }
-          - { label: 'Link', name: 'link', widget: 'string' }
-  # - file: 'src/pages/about/index.md'
-  #   label: 'About'
-  #   name: 'about'
-  #   fields:
-  #     - {
-  #         label: 'Template Key',
-  #         name: 'templateKey',
-  #         widget: 'hidden',
-  #         default: 'about-page',
-  #       }
-  #     - { label: 'Title', name: 'title', widget: 'string' }
-  #     - { label: 'Body', name: 'body', widget: 'markdown' }
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'product-page',
+            }
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - label: 'Items'
+            name: 'items'
+            widget: 'list'
+            fields:
+              - { label: 'Image', name: 'image', widget: 'image' }
+              - { label: 'Link', name: 'link', widget: 'string' }
+      - file: 'src/pages/about/index.md'
+        label: 'About'
+        name: 'about'
+        fields:
+          - {
+              label: 'Template Key',
+              name: 'templateKey',
+              widget: 'hidden',
+              default: 'about-page',
+            }
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
