@@ -1,15 +1,26 @@
 :root {
-  --burger-time: 0.7s;
-  --burger-ease: cubic-bezier(0.54, -0.81, 0.57, 0.57);
-  --burger-color: #ffffff;
+  /* SPACES */
+  --space: 8px;
 
-  --font-family-base: gibbs, sans-serif;
+  /* COLORS */
   --black: #000000;
   --white: #ffffff;
   --bg-color: #191919;
   --text-color: #ffffff;
   --primary: #f2eb01;
 
+  /* TYPOGRAPHY */
+  --font-family-base: aktiv-grotesk-thin, sans-serif;
+  --font-weight-base: 200;
+  --font-family-heading: aktiv-grotesk, sans-serif;
+  --font-weight-heading: 700;
+
+  /* DEPTH */
+  --z-index-menu: 100;
+  --z-index-base: 1;
+  --z-index-behind: -1;
+
+  /* EASING */
   --expo-ease-in: cubic-bezier(0.92, 0.02, 0.83, 0.21);
   --expo-ease-out: cubic-bezier(0.15, 0.94, 0.21, 0.98);
   --expo-ease-in-out: cubic-bezier(0.86, 0.01, 0.14, 1);
@@ -17,4 +28,9 @@
   --power3-ease-in: cubic-bezier(0.74, 0, 0.77, 0.25);
   --power3-ease-out: cubic-bezier(0.23, 1, 0.38, 1);
   --power3-ease-in-out: cubic-bezier(0.69, 0, 0.27, 1);
+
+  /* BURGER */
+  --burger-time: 0.7s;
+  --burger-ease: cubic-bezier(0.54, -0.81, 0.57, 0.57);
+  --burger-color: #ffffff;
 }

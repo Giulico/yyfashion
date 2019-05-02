@@ -6,6 +6,8 @@ import { Parallax } from 'react-scroll-parallax'
 
 // Components
 import Hero from '../components/Hero'
+import Footer from '../components/Footer'
+import Card from '../components/Card'
 
 // Style
 import style from './index-page.module.css'
@@ -34,6 +36,13 @@ export const IndexPageTemplate = ({
       <div className={style.image3}>
         <Img fluid={image3.childImageSharp.fluid} />
       </div>
+      <Footer />
+      <Card
+        className={style.footer}
+        cta="Scopri la collezione"
+        ctaSrc="/collezione"
+        fluid={footer.childImageSharp.fluid}
+      />
     </div>
   )
 }

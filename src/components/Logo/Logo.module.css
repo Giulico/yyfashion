@@ -27,3 +27,9 @@
   max-width: 120px;
   transform: translate3d(-50%, -50%, 0);
 }
+
+@media (--desktop) {
+  .pinned {
+    max-width: 160px;
+  }
+}
