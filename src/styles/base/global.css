@@ -14,3 +14,21 @@ h4 {
   font-family: var(--font-family-heading);
   font-weight: var(--font-weight-heading);
 }
+
+h1 {
+  font-size: 30px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+@media (--tablet) {
+  h1 {
+    font-size: 60px;
+  }
+}
+
+@media (--desktop) {
+  h1 {
+    font-size: 90px;
+  }
+}

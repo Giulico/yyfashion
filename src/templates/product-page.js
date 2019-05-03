@@ -2,20 +2,34 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
-export const ProductPageTemplate = ({ title, items }) => (
-  <div>page collection</div>
-)
+// Components
+import { Grid, GridItem } from '../components/Grid'
+import Card from '../components/Card'
+import Container from '../components/Container'
 
-ProductPageTemplate.propTypes = {
-  title: PropTypes.string,
-  items: PropTypes.array
-}
-
-const ProductPage = ({ data }) => {
+export const ProductPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
+  const { title, items } = frontmatter
 
   return (
-    <ProductPageTemplate title={frontmatter.title} link={frontmatter.link} />
+    <Container>
+      <h1>{title}</h1>
+      <Grid>
+        {items.map((item, index) => (
+          <GridItem
+            key={index}
+            className={index % 2 !== 0 ? 'u-mt-tablet--2 u-mt-desktop--4' : ''}
+          >
+            <Card
+              modifier="product"
+              cta="Shop now"
+              ctaSrc="/collezione"
+              fluid={item.image.childImageSharp.fluid}
+            />
+          </GridItem>
+        ))}
+      </Grid>
+    </Container>
   )
 }
 
@@ -35,7 +49,13 @@ export const productPageQuery = graphql`
       frontmatter {
         title
         items {
-          image
+          image {
+            childImageSharp {
+              fluid(maxWidth: 2048, quality: 100) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
           link
         }
       }

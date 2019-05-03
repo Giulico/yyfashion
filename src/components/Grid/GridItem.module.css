@@ -1,0 +1,5 @@
+@media (--tablet) {
+  .root {
+    flex: 0 1 50%;
+  }
+}

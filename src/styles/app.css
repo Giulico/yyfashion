@@ -2,3 +2,6 @@
 @import './base/variables.css';
 @import './base/custom-media.css';
 @import './base/global.css';
+
+/* UTILITIES */
+@import './utilities/sizes.css';
