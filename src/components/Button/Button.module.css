@@ -1,12 +1,18 @@
 .root {
   display: inline-block;
   padding: 1rem 1.5rem;
-  border: 2px solid var(--white);
-  background-color: var(--white);
+  outline: 0 none;
   letter-spacing: 2px;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+
+  &,
+  &:active {
+    border: 2px solid var(--white);
+    background-color: var(--white);
+    color: var(--black);
+  }
 
   &:hover {
     background-color: transparent;
