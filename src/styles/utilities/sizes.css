@@ -2,14 +2,14 @@
   margin-top: 2rem;
 }
 
-@media (--tablet) {
-  .u-mt-tablet--2 {
+.u-mt-tablet--2 {
+  @media (--tablet) {
     margin-top: 2rem;
   }
 }
 
-@media (--desktop) {
-  .u-mt-desktop--4 {
+.u-mt-desktop--4 {
+  @media (--desktop) {
     margin-top: 4rem;
   }
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import { Reveal } from 'react-reveal'
 
 // Components
 import { Grid, GridItem } from '../components/Grid'
@@ -20,12 +21,14 @@ export const ProductPage = ({ data }) => {
             key={index}
             className={index % 2 !== 0 ? 'u-mt-tablet--2 u-mt-desktop--4' : ''}
           >
-            <Card
-              modifier="product"
-              cta="Shop now"
-              ctaSrc="/collezione"
-              fluid={item.image.childImageSharp.fluid}
-            />
+            <Reveal effect="a-fade-in-up">
+              <Card
+                modifier="product"
+                cta="Shop now"
+                ctaSrc="/collezione"
+                fluid={item.image.childImageSharp.fluid}
+              />
+            </Reveal>
           </GridItem>
         ))}
       </Grid>

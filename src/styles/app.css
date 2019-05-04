@@ -1,3 +1,6 @@
+/* CUSTOM MEDIA */
+@import './base/custom-media.css';
+
 /* BASE */
 @import './base/variables.css';
 @import './base/global.css';
@@ -5,4 +8,5 @@
 /* UTILITIES */
 @import './utilities/sizes.css';
 
-@import './base/custom-media.css';
+/* ANIMATIONS */
+@import './animations/animations.css';

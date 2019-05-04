@@ -19,16 +19,12 @@ h1 {
   font-size: 30px;
   letter-spacing: 1px;
   text-transform: uppercase;
-}
 
-@media (--tablet) {
-  h1 {
+  @media (--tablet) {
     font-size: 60px;
   }
-}
 
-@media (--desktop) {
-  h1 {
+  @media (--desktop) {
     font-size: 90px;
   }
 }
