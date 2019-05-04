@@ -4,7 +4,6 @@
 
 .caption {
   text-align: right;
-
   @media (--desktop) {
     z-index: calc(var(--z-index-base) + 1);
     display: flex;

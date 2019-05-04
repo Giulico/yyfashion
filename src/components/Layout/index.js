@@ -4,7 +4,6 @@ import Navbar from '../Navbar'
 import useSiteMetadata from '../SiteMetadata'
 
 // Styles
-import '../../styles/app.css'
 import style from './Layout.module.css'
 
 const TemplateWrapper = ({ children }) => {
