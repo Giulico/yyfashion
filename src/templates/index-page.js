@@ -40,7 +40,7 @@ export const IndexPageTemplate = ({
       <Card
         className={style.footer}
         cta="Scopri la collezione"
-        ctaSrc="/collezione"
+        ctaSrc="/collection"
         fluid={footer.childImageSharp.fluid}
       />
     </div>

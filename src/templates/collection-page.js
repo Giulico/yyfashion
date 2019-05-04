@@ -8,7 +8,7 @@ import { Grid, GridItem } from '../components/Grid'
 import Card from '../components/Card'
 import Container from '../components/Container'
 
-export const ProductPage = ({ data }) => {
+export const CollectionPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
   const { title, items } = frontmatter
 
@@ -36,7 +36,7 @@ export const ProductPage = ({ data }) => {
   )
 }
 
-ProductPage.propTypes = {
+CollectionPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.object
@@ -44,10 +44,10 @@ ProductPage.propTypes = {
   })
 }
 
-export default ProductPage
+export default CollectionPage
 
-export const productPageQuery = graphql`
-  query ProductPage($id: String!) {
+export const CollectionPageQuery = graphql`
+  query CollectionPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       frontmatter {
         title
