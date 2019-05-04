@@ -6,6 +6,7 @@ module.exports = {
     description: 'Urban streatware'
   },
   plugins: [
+    // 'gatsby-plugin-postcss',
     {
       resolve: `gatsby-plugin-layout`,
       options: {
@@ -17,9 +18,9 @@ module.exports = {
       resolve: `gatsby-plugin-postcss`,
       options: {
         postCssPlugins: [
-          require(`postcss-preset-env`)({ stage: 0 }),
           require('postcss-nesting')(),
-          require('postcss-custom-media')()
+          require('postcss-custom-media')(),
+          require(`postcss-preset-env`)({ stage: 0 })
         ]
       }
     },
