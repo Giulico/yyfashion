@@ -17,9 +17,9 @@ module.exports = {
       resolve: `gatsby-plugin-postcss`,
       options: {
         postCssPlugins: [
-          require('postcss-custom-media')(),
+          require(`postcss-preset-env`)({ stage: 0 }),
           require('postcss-nesting')(),
-          require(`postcss-preset-env`)({ stage: 0 })
+          require('postcss-custom-media')()
         ]
       }
     },

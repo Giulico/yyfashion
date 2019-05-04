@@ -4,10 +4,8 @@
 
 .caption {
   text-align: right;
-}
 
-@media (--desktop) {
-  .caption {
+  @media (--desktop) {
     z-index: calc(var(--z-index-base) + 1);
     display: flex;
     opacity: 0;
