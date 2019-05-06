@@ -8,7 +8,7 @@ import style from './Logo.module.css'
 
 class Logo extends React.Component {
   componentDidMount() {
-    const { unPin } = this.props
+    const { logo, pin, unPin } = this.props
 
     this.isHome =
       typeof window !== 'undefined' &&
@@ -17,9 +17,18 @@ class Logo extends React.Component {
 
     if (this.isHome) {
       document.body.style.overflow = 'hidden'
-      setTimeout(() => {
-        document.body.style.overflow = ''
-        unPin()
+      // setTimeout(() => {
+      //   document.body.style.overflow = ''
+      //   unPin()
+      // }, 2000)
+      setInterval(() => {
+        if (this.props.logo.pinned) {
+          document.body.style.overflow = ''
+          unPin()
+        } else {
+          document.body.style.overflow = 'hidden'
+          pin()
+        }
       }, 2000)
     }
   }
@@ -58,7 +67,8 @@ const mapStateToProp = (state, ownProps) => ({
   logo: state.logo
 })
 const mapDispatchToProps = dispatch => ({
-  unPin: action => dispatch({ type: 'UNPIN_LOGO' })
+  unPin: action => dispatch({ type: 'UNPIN_LOGO' }),
+  pin: action => dispatch({ type: 'PIN_LOGO' })
 })
 
 export default connect(
