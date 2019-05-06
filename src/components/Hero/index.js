@@ -13,10 +13,10 @@ const Hero = ({ alt, hero }) => {
     [style.claim]: true,
     [style.visible]: !logo.pinned
   })
-  console.group('Hero')
-  console.log('Hero logo.pinned', logo.pinned)
-  console.log(claimClasses)
-  console.groupEnd()
+  // console.group('Hero')
+  // console.log('Hero logo.pinned', logo.pinned)
+  // console.log(claimClasses)
+  // console.groupEnd()
   return (
     <div className={style.root}>
       <h1 className={claimClasses}>New York</h1>

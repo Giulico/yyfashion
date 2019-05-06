@@ -36,6 +36,7 @@ class Logo extends React.Component {
       [style.pinned]: true // logo.pinned
     })
     console.group('Logo')
+    console.log('logo.pinned', logo.pinned)
     console.log(imgClasses)
     console.groupEnd()
 
