@@ -1,47 +1,61 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import classNames from 'classnames'
-import { useStore } from 'redhooks'
-// import { Link } from 'gatsby'
+import { connect } from 'redhooks'
+import { Link } from 'gatsby'
+
 // Style
 import style from './Logo.module.css'
 
-const isHome =
-  typeof window !== 'undefined' &&
-  window.location &&
-  window.location.pathname === '/'
+class Logo extends React.Component {
+  componentDidMount() {
+    const { logo, pin, unPin } = this.props
 
-const Logo = ({ pinned, src, alt }) => {
-  const { state, dispatch } = useStore()
-  const { logo } = state
+    const isHome =
+      typeof window !== 'undefined' &&
+      window.location &&
+      window.location.pathname === '/'
 
-  // componentDidMount
-  useEffect(() => {
     if (isHome) {
       document.body.style.overflow = 'hidden'
-      dispatch({ type: 'PIN_LOGO' })
+      pin()
     }
+
     if (logo.pinned) {
       setTimeout(() => {
         document.body.style.overflow = ''
-        dispatch({ type: 'UNPIN_LOGO' })
+        unPin()
       }, 2000)
     }
-  }, [])
+  }
 
-  const imgClasses = classNames({
-    [style.root]: true,
-    [style.pinned]: logo.pinned
-  })
+  render() {
+    const { src, alt, logo } = this.props
 
-  console.group('Logo')
-  console.log(style.root, logo.pinned ? style.pinned : '')
-  console.groupEnd()
+    const imgClasses = classNames({
+      [style.root]: true,
+      [style.pinned]: logo.pinned
+    })
+    console.group('Logo')
+    console.log(imgClasses)
+    console.groupEnd()
 
-  return (
-    <a href="/" title={alt} className={`${style.root} ${style.pinned}`}>
-      <img src={src} alt={alt} />
-    </a>
-  )
+    return (
+      <Link to="/" title={alt} className={imgClasses}>
+        <img src={src} alt={alt} />
+      </Link>
+    )
+  }
 }
 
-export default Logo
+const mapStateToProp = (state, ownProps) => ({
+  logo: state.logo
+})
+const mapDispatchToProps = dispatch => ({
+  pin: action => dispatch({ type: 'PIN_LOGO' }),
+  unPin: action => dispatch({ type: 'UNPIN_LOGO' })
+})
+
+export default connect(
+  mapStateToProp,
+  mapDispatchToProps
+)(Logo)
