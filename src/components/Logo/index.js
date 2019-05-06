@@ -39,6 +39,7 @@ class Logo extends React.Component {
       [style.root]: true,
       [style.pinned]: isPinned
     })
+
     console.group('Logo')
     console.log('isPinned', isPinned)
     console.log(classes)
@@ -46,6 +47,15 @@ class Logo extends React.Component {
 
     return (
       <Link to="/" title={alt} className={classes}>
+        <p
+          style={{
+            color: 'white',
+            whiteSpace: 'nowrap',
+            backgroundColor: 'black'
+          }}
+        >
+          {classes}
+        </p>
         <img src={src} alt={alt} />
       </Link>
     )
