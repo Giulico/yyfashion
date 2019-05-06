@@ -17,8 +17,11 @@ import Logo from '../Logo'
 // Img
 import LogoImg from '../../assets/images/yy-logo.jpg'
 
-const TemplateWrapper = ({ children }) => {
+const Layout = ({ children, pageContext }) => {
   const { title, description } = useSiteMetadata()
+  if (pageContext && pageContext.template === 'index-page') {
+    store.initialState.logo.pinned = true
+  }
   return (
     <Provider store={store}>
       <Logo src={LogoImg} alt="Yellow and Yellow Fashion" />
@@ -62,4 +65,4 @@ const TemplateWrapper = ({ children }) => {
   )
 }
 
-export default TemplateWrapper
+export default Layout

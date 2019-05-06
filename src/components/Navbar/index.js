@@ -33,8 +33,8 @@ const Navbar = class extends React.Component {
             <NavbarItem className="navbar-item" to="/about" index={1}>
               About
             </NavbarItem>
-            <NavbarItem className="navbar-item" to="/products" index={2}>
-              Products
+            <NavbarItem className="navbar-item" to="/collection" index={2}>
+              Collection
             </NavbarItem>
             <NavbarItem className="navbar-item" to="/contact" index={3}>
               Contact

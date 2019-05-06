@@ -2,6 +2,8 @@ const _ = require('lodash')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const { fmImagesToRelative } = require('gatsby-remark-relative-images')
+//
+const JsxstylePlugin = require('jsxstyle-webpack-plugin')
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
@@ -34,14 +36,14 @@ exports.createPages = ({ actions, graphql }) => {
       const id = edge.node.id
       const slug =
         edge.node.fields.slug === '/homepage/' ? '/' : edge.node.fields.slug
+      const template = String(edge.node.frontmatter.templateKey)
       createPage({
         path: slug,
-        component: path.resolve(
-          `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
-        ),
+        component: path.resolve(`src/templates/${template}.js`),
         // additional data can be passed via context
         context: {
-          id
+          id,
+          template
         }
       })
     })
