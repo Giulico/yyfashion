@@ -7,12 +7,6 @@ module.exports = {
   },
   plugins: [
     // 'gatsby-plugin-postcss',
-    {
-      resolve: `gatsby-plugin-layout`,
-      options: {
-        component: require.resolve(`./src/components/Layout`)
-      }
-    },
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-postcss`,
@@ -74,6 +68,12 @@ module.exports = {
             }
           }
         ]
+      }
+    },
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/components/Layout`)
       }
     },
     {

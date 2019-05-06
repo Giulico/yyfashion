@@ -5,6 +5,7 @@ import useSiteMetadata from '../SiteMetadata'
 import Provider from 'redhooks'
 
 // Styles
+import '../../styles/app.css'
 import style from './Layout.module.css'
 
 // Store
