@@ -33,7 +33,9 @@ const Logo = ({ pinned, src, alt }) => {
     [style.pinned]: logo.pinned
   })
 
+  console.group('Logo')
   console.log(imgClasses)
+  console.groupEnd()
 
   return (
     <a href="/" title={alt} className={imgClasses}>
