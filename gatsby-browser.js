@@ -14,10 +14,7 @@ export const wrapRootElement = ({ element }) => {
   return (
     <>
       <ParallaxProvider>
-        <Provider store={store}>
-          <Logo src={LogoImg} alt="Yellow and Yellow Fashion" />
-          {element}
-        </Provider>
+        <Provider store={store}>{element}</Provider>
       </ParallaxProvider>
     </>
   )
