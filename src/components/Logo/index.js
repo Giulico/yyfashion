@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import classNames from 'classnames'
 import { useStore } from 'redhooks'
-import { Link } from 'gatsby'
+// import { Link } from 'gatsby'
 // Style
 import style from './Logo.module.css'
 
@@ -36,9 +36,9 @@ const Logo = ({ pinned, src, alt }) => {
   console.log(imgClasses)
 
   return (
-    <Link to="/" title={alt} className={imgClasses}>
+    <a href="/" title={alt} className={imgClasses}>
       <img src={src} alt={alt} />
-    </Link>
+    </a>
   )
 }
 
