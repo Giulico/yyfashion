@@ -22,7 +22,7 @@ export const IndexPageTemplate = ({
   footer
 }) => {
   return (
-    <div>
+    <>
       <Hero alt={title} hero={hero} />
       <Parallax y={[-20, 20]} className={style.video}>
         <Img fluid={video.childImageSharp.fluid} />
@@ -43,7 +43,7 @@ export const IndexPageTemplate = ({
         ctaSrc="/collection"
         fluid={footer.childImageSharp.fluid}
       />
-    </div>
+    </>
   )
 }
 

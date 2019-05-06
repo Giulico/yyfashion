@@ -70,7 +70,9 @@ const mapDispatchToProps = dispatch => ({
   unPin: action => dispatch({ type: 'UNPIN_LOGO' })
 })
 
-export default connect(
-  mapStateToProp,
-  mapDispatchToProps
-)(Logo)
+// export default connect(
+//   mapStateToProp,
+//   mapDispatchToProps
+// )(Logo)
+
+export default Logo
