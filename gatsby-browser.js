@@ -13,12 +13,12 @@ import LogoImg from './src/assets/images/yy-logo.jpg'
 export const wrapRootElement = ({ element }) => {
   return (
     <>
-      <Provider store={store}>
-        <ParallaxProvider>
+      <ParallaxProvider>
+        <Provider store={store}>
           <Logo src={LogoImg} alt="Yellow and Yellow Fashion" />
           {element}
-        </ParallaxProvider>
-      </Provider>
+        </Provider>
+      </ParallaxProvider>
     </>
   )
 }
