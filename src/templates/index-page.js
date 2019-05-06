@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
-import { ParallaxProvider, Parallax } from 'react-scroll-parallax'
+// import { ParallaxProvider, Parallax } from 'react-scroll-parallax'
 
 // Components
 import Hero from '../components/Hero'
@@ -23,28 +23,28 @@ export const IndexPageTemplate = ({
 }) => {
   return (
     <>
-      <ParallaxProvider>
-        <Hero alt={title} hero={hero} />
-        <Parallax y={[-20, 20]} className={style.video}>
-          <Img fluid={video.childImageSharp.fluid} />
-        </Parallax>
-        <div className={style.image1}>
-          <Img fluid={image1.childImageSharp.fluid} />
-        </div>
-        <Parallax y={[-30, 10]} className={style.image2}>
-          <Img fluid={image2.childImageSharp.fluid} />
-        </Parallax>
-        <div className={style.image3}>
-          <Img fluid={image3.childImageSharp.fluid} />
-        </div>
-        <Footer />
-        <Card
-          className={style.footer}
-          cta="Scopri la collezione"
-          ctaSrc="/collection"
-          fluid={footer.childImageSharp.fluid}
-        />
-      </ParallaxProvider>
+      {/* <ParallaxProvider> */}
+      <Hero alt={title} hero={hero} />
+      {/* <Parallax y={[-20, 20]} className={style.video}> */}
+      <Img fluid={video.childImageSharp.fluid} />
+      {/* </Parallax> */}
+      <div className={style.image1}>
+        <Img fluid={image1.childImageSharp.fluid} />
+      </div>
+      {/* <Parallax y={[-30, 10]} className={style.image2}> */}
+      <Img fluid={image2.childImageSharp.fluid} />
+      {/* </Parallax> */}
+      <div className={style.image3}>
+        <Img fluid={image3.childImageSharp.fluid} />
+      </div>
+      <Footer />
+      <Card
+        className={style.footer}
+        cta="Scopri la collezione"
+        ctaSrc="/collection"
+        fluid={footer.childImageSharp.fluid}
+      />
+      {/* </ParallaxProvider> */}
     </>
   )
 }
