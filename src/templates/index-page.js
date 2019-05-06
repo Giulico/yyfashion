@@ -12,6 +12,10 @@ import Card from '../components/Card'
 // Style
 import style from './index-page.module.css'
 
+import Logo from '../components/Logo'
+// Img
+import LogoImg from '../assets/images/yy-logo.jpg'
+
 export const IndexPageTemplate = ({
   title,
   hero,
@@ -22,28 +26,31 @@ export const IndexPageTemplate = ({
   footer
 }) => {
   return (
-    <ParallaxProvider>
-      <Hero alt={title} hero={hero} />
-      <Parallax y={[-20, 20]} className={style.video}>
-        <Img fluid={video.childImageSharp.fluid} />
-      </Parallax>
-      <div className={style.image1}>
-        <Img fluid={image1.childImageSharp.fluid} />
-      </div>
-      <Parallax y={[-30, 10]} className={style.image2}>
-        <Img fluid={image2.childImageSharp.fluid} />
-      </Parallax>
-      <div className={style.image3}>
-        <Img fluid={image3.childImageSharp.fluid} />
-      </div>
-      <Footer />
-      <Card
-        className={style.footer}
-        cta="Scopri la collezione"
-        ctaSrc="/collection"
-        fluid={footer.childImageSharp.fluid}
-      />
-    </ParallaxProvider>
+    <>
+      <Logo src={LogoImg} alt="Yellow and Yellow Fashion" />
+      <ParallaxProvider>
+        <Hero alt={title} hero={hero} />
+        <Parallax y={[-20, 20]} className={style.video}>
+          <Img fluid={video.childImageSharp.fluid} />
+        </Parallax>
+        <div className={style.image1}>
+          <Img fluid={image1.childImageSharp.fluid} />
+        </div>
+        <Parallax y={[-30, 10]} className={style.image2}>
+          <Img fluid={image2.childImageSharp.fluid} />
+        </Parallax>
+        <div className={style.image3}>
+          <Img fluid={image3.childImageSharp.fluid} />
+        </div>
+        <Footer />
+        <Card
+          className={style.footer}
+          cta="Scopri la collezione"
+          ctaSrc="/collection"
+          fluid={footer.childImageSharp.fluid}
+        />
+      </ParallaxProvider>
+    </>
   )
 }
 

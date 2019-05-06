@@ -7,10 +7,6 @@ import style from './Navbar.module.css'
 
 // Components
 import Burger from '../Burger'
-import Logo from '../Logo'
-
-// Img
-import LogoImg from '../../assets/images/yy-logo.jpg'
 
 const Navbar = class extends React.Component {
   state = {
@@ -31,8 +27,6 @@ const Navbar = class extends React.Component {
         aria-label="main-navigation"
       >
         <Burger isActive={active} onClick={this.toggleHamburger} />
-
-        <Logo src={LogoImg} alt="Yellow and Yellow Fashion" />
 
         <div className={navbarClasses}>
           <ul className={style.items}>
