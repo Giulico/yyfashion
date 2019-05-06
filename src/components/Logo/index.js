@@ -33,9 +33,11 @@ const Logo = ({ pinned, src, alt }) => {
     [style.pinned]: logo.pinned
   })
 
+  console.log(imgClasses)
+
   return (
-    <Link to="/" title={alt}>
-      <img className={imgClasses} src={src} alt={alt} />
+    <Link to="/" title={alt} className={imgClasses}>
+      <img src={src} alt={alt} />
     </Link>
   )
 }

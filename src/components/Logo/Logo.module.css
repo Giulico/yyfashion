@@ -2,11 +2,16 @@
   position: fixed;
   top: 1%;
   left: 3%;
+  z-index: calc(var(--z-index-base) + 1);
   max-width: 40px;
   transform: translate3d(0, 0, 0);
   transition: all 0.5s ease-in-out;
   backface-visibility: hidden;
   will-change: top, left, transform;
+
+  & img {
+    max-width: 100%;
+  }
 }
 
 @media (--tablet) {
