@@ -1,6 +1,5 @@
 import React from 'react'
 import Provider from 'redhooks'
-import { ParallaxProvider } from 'react-scroll-parallax'
 
 import './src/styles/app.css'
 
@@ -13,9 +12,7 @@ import LogoImg from './src/assets/images/yy-logo.jpg'
 export const wrapRootElement = ({ element }) => {
   return (
     <>
-      <ParallaxProvider>
-        <Provider store={store}>{element}</Provider>
-      </ParallaxProvider>
+      <Provider store={store}>{element}</Provider>
     </>
   )
 }
