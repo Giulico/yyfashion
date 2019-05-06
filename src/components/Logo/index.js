@@ -38,11 +38,7 @@ const Logo = ({ pinned, src, alt }) => {
   console.groupEnd()
 
   return (
-    <a
-      href="/"
-      title={alt}
-      className={`${style.root} ${logo.pinned ? style.pinned : ''}`}
-    >
+    <a href="/" title={alt} className={`${style.root} ${style.pinned}`}>
       <img src={src} alt={alt} />
     </a>
   )
