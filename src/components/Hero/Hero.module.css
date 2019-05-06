@@ -18,15 +18,13 @@
   text-transform: uppercase;
   transform: translate3d(-50%, -50%, 0) scale(0.6, 0.6);
   transition: all 0.7s ease-in-out;
-}
 
-@media (--desktop) {
-  .claim {
+  @media (--desktop) {
     font-size: 100px;
   }
 }
 
-.claim.visible {
+.visible {
   opacity: 1;
   transform: translate3d(-50%, -50%, 0) scale(1, 1);
 }

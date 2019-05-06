@@ -12,16 +12,12 @@
   & img {
     max-width: 100%;
   }
-}
 
-@media (--tablet) {
-  .root {
+  @media (--tablet) {
     max-width: 80px;
   }
-}
 
-@media (--desktop) {
-  .root {
+  @media (--desktop) {
     left: 1%;
   }
 }
@@ -31,10 +27,8 @@
   left: 50%;
   max-width: 120px;
   transform: translate3d(-50%, -50%, 0);
-}
 
-@media (--desktop) {
-  .pinned {
+  @media (--desktop) {
     max-width: 160px;
   }
 }

@@ -34,11 +34,15 @@ const Logo = ({ pinned, src, alt }) => {
   })
 
   console.group('Logo')
-  console.log(imgClasses)
+  console.log(style.root, logo.pinned ? style.pinned : '')
   console.groupEnd()
 
   return (
-    <a href="/" title={alt} className={imgClasses}>
+    <a
+      href="/"
+      title={alt}
+      className={`${style.root} ${logo.pinned ? style.pinned : ''}`}
+    >
       <img src={src} alt={alt} />
     </a>
   )
