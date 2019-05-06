@@ -41,7 +41,14 @@ class Logo extends React.Component {
     console.groupEnd()
 
     return (
-      <Link to="/" title={alt} className={imgClasses}>
+      <Link
+        to="/"
+        title={alt}
+        className={classNames({
+          [style.root]: true,
+          [style.pinned]: logo.pinned
+        })}
+      >
         <img src={src} alt={alt} />
       </Link>
     )
