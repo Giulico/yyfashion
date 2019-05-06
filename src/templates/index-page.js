@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
-import { Parallax } from 'react-scroll-parallax'
+import { ParallaxProvider, Parallax } from 'react-scroll-parallax'
 
 // Components
 import Hero from '../components/Hero'
@@ -22,7 +22,7 @@ export const IndexPageTemplate = ({
   footer
 }) => {
   return (
-    <>
+    <ParallaxProvider>
       <Hero alt={title} hero={hero} />
       <Parallax y={[-20, 20]} className={style.video}>
         <Img fluid={video.childImageSharp.fluid} />
@@ -43,7 +43,7 @@ export const IndexPageTemplate = ({
         ctaSrc="/collection"
         fluid={footer.childImageSharp.fluid}
       />
-    </>
+    </ParallaxProvider>
   )
 }
 
