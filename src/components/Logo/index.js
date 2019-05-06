@@ -7,48 +7,45 @@ import { Link } from 'gatsby'
 import style from './Logo.module.css'
 
 class Logo extends React.Component {
-  componentDidMount() {
-    const { logo, pin, unPin } = this.props
-
-    const isHome =
+  constructor(props) {
+    super(props)
+    this.isHome =
       typeof window !== 'undefined' &&
       window.location &&
       window.location.pathname === '/'
 
-    if (isHome) {
-      document.body.style.overflow = 'hidden'
-      pin()
+    this.state = {
+      isPinned: this.isHome
     }
+  }
 
-    if (logo.pinned) {
+  componentDidMount() {
+    const { logo, pin, unPin } = this.props
+
+    if (this.isHome) {
+      document.body.style.overflow = 'hidden'
       setTimeout(() => {
         document.body.style.overflow = ''
-        unPin()
+        this.setState({ isPinned: false })
       }, 2000)
     }
   }
 
   render() {
     const { src, alt, logo } = this.props
+    const { isPinned } = this.state
 
-    const imgClasses = classNames({
+    const classes = classNames({
       [style.root]: true,
-      [style.pinned]: true // logo.pinned
+      [style.pinned]: isPinned
     })
     console.group('Logo')
-    console.log('logo.pinned', logo.pinned)
-    console.log(imgClasses)
+    console.log('isPinned', isPinned)
+    console.log(classes)
     console.groupEnd()
 
     return (
-      <Link
-        to="/"
-        title={alt}
-        className={classNames({
-          [style.root]: true,
-          [style.pinned]: logo.pinned
-        })}
-      >
+      <Link to="/" title={alt} className={classes}>
         <img src={src} alt={alt} />
       </Link>
     )
