@@ -2,14 +2,25 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import Navbar from '../Navbar'
 import useSiteMetadata from '../SiteMetadata'
+import Provider from 'redhooks'
 
 // Styles
 import style from './Layout.module.css'
 
+// Store
+import store from '../../store'
+
+// Components
+import Logo from '../Logo'
+
+// Img
+import LogoImg from '../../assets/images/yy-logo.jpg'
+
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata()
   return (
-    <>
+    <Provider store={store}>
+      <Logo src={LogoImg} alt="Yellow and Yellow Fashion" />
       <Helmet title={title}>
         <html lang="en" />
         <meta name="description" content={description} />
@@ -46,7 +57,7 @@ const TemplateWrapper = ({ children }) => {
       </Helmet>
       <Navbar />
       <div className={style.main}>{children}</div>
-    </>
+    </Provider>
   )
 }
 

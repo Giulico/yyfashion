@@ -8,7 +8,7 @@ import style from './Logo.module.css'
 
 class Logo extends React.Component {
   componentDidMount() {
-    const { logo, pin, unPin } = this.props
+    const { unPin } = this.props
 
     this.isHome =
       typeof window !== 'undefined' &&
@@ -58,7 +58,6 @@ const mapStateToProp = (state, ownProps) => ({
   logo: state.logo
 })
 const mapDispatchToProps = dispatch => ({
-  pin: action => dispatch({ type: 'PIN_LOGO' }),
   unPin: action => dispatch({ type: 'UNPIN_LOGO' })
 })
 
