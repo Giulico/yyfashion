@@ -7,41 +7,33 @@ import { Link } from 'gatsby'
 import style from './Logo.module.css'
 
 class Logo extends React.Component {
-  constructor(props) {
-    super(props)
+  componentDidMount() {
+    const { logo, pin, unPin } = this.props
+
     this.isHome =
       typeof window !== 'undefined' &&
       window.location &&
       window.location.pathname === '/'
 
-    this.state = {
-      isPinned: this.isHome
-    }
-  }
-
-  componentDidMount() {
-    const { logo, pin, unPin } = this.props
-
     if (this.isHome) {
       document.body.style.overflow = 'hidden'
       setTimeout(() => {
         document.body.style.overflow = ''
-        this.setState({ isPinned: false })
+        unPin()
       }, 2000)
     }
   }
 
   render() {
     const { src, alt, logo } = this.props
-    const { isPinned } = this.state
 
     const classes = classNames({
       [style.root]: true,
-      [style.pinned]: isPinned
+      [style.pinned]: logo.pinned
     })
 
     console.group('Logo')
-    console.log('isPinned', isPinned)
+    console.log('logo.pinned', logo.pinned)
     console.log(classes)
     console.groupEnd()
 
@@ -70,9 +62,9 @@ const mapDispatchToProps = dispatch => ({
   unPin: action => dispatch({ type: 'UNPIN_LOGO' })
 })
 
-// export default connect(
-//   mapStateToProp,
-//   mapDispatchToProps
-// )(Logo)
+export default connect(
+  mapStateToProp,
+  mapDispatchToProps
+)(Logo)
 
-export default Logo
+// export default Logo

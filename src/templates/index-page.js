@@ -12,6 +12,9 @@ import Card from '../components/Card'
 // Style
 import style from './index-page.module.css'
 
+import Logo from '../components/Logo'
+// Img
+import LogoImg from '../assets/images/yy-logo.jpg'
 export const IndexPageTemplate = ({
   title,
   hero,
@@ -23,6 +26,7 @@ export const IndexPageTemplate = ({
 }) => {
   return (
     <>
+      <Logo src={LogoImg} alt="Yellow and Yellow Fashion" />
       <Hero alt={title} hero={hero} />
       <Parallax y={[-20, 20]} className={style.video}>
         <Img fluid={video.childImageSharp.fluid} />
