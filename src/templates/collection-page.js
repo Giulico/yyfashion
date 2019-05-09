@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classNames from 'classnames'
 import { graphql } from 'gatsby'
 import { Reveal } from 'react-reveal'
 
@@ -16,21 +17,25 @@ export const CollectionPage = ({ data }) => {
     <Container>
       <h1>{title}</h1>
       <Grid>
-        {items.map((item, index) => (
-          <GridItem
-            key={index}
-            className={index % 2 !== 0 ? 'u-mt-tablet--2 u-mt-desktop--4' : ''}
-          >
-            <Reveal effect="a-fade-in-up">
-              <Card
-                modifier="product"
-                cta="Shop now"
-                ctaSrc="/collezione"
-                fluid={item.image.childImageSharp.fluid}
-              />
-            </Reveal>
-          </GridItem>
-        ))}
+        {items.map((item, index) => {
+          const isOdd = index % 2 !== 0
+          const gridItemClasses = classNames({
+            'u-mt-tablet--2 u-mt-desktop--4': isOdd
+          })
+          const revealEffect = isOdd ? 'a-fade-in-up-odd' : 'a-fade-in-up'
+          return (
+            <GridItem key={index} className={gridItemClasses}>
+              <Reveal effect={revealEffect}>
+                <Card
+                  modifier="product"
+                  cta="Shop now"
+                  ctaSrc="/collezione"
+                  fluid={item.image.childImageSharp.fluid}
+                />
+              </Reveal>
+            </GridItem>
+          )
+        })}
       </Grid>
     </Container>
   )
