@@ -31,20 +31,13 @@ const Navbar = class extends React.Component {
         <div className={navbarClasses}>
           <ul className={style.items}>
             <NavbarItem className="navbar-item" to="/about" index={1}>
-              About
+              Chi siamo
             </NavbarItem>
             <NavbarItem className="navbar-item" to="/collection" index={2}>
-              Collection
+              Collezione
             </NavbarItem>
             <NavbarItem className="navbar-item" to="/contact" index={3}>
-              Contact
-            </NavbarItem>
-            <NavbarItem
-              className="navbar-item"
-              to="/contact/examples"
-              index={4}
-            >
-              Form Examples
+              Contattaci
             </NavbarItem>
           </ul>
         </div>

@@ -5,21 +5,28 @@ import { graphql } from 'gatsby'
 // Components
 import { Grid, GridItem } from '../components/Grid'
 import Container from '../components/Container'
+import FixedBackground from '../components/FixedBackground'
 
 const AboutPage = ({ data }) => {
   const { frontmatter, html } = data.markdownRemark
-  const { title, intro, body } = frontmatter
+  const { title, intro, cover } = frontmatter
 
   return (
-    <Container>
-      <Grid>
-        <GridItem large>
-          <h1>{title}</h1>
-          <p className="u-text--large">{intro}</p>
-          <div dangerouslySetInnerHTML={{ __html: html }} />
-        </GridItem>
-      </Grid>
-    </Container>
+    <>
+      <FixedBackground alt={title} image={cover.childImageSharp.fluid} />
+      <Container>
+        <h1>{title}</h1>
+        <Grid>
+          <GridItem large>
+            <p className="u-text--large">{intro}</p>
+            <div
+              className="u-mb--6"
+              dangerouslySetInnerHTML={{ __html: html }}
+            />
+          </GridItem>
+        </Grid>
+      </Container>
+    </>
   )
 }
 
@@ -36,6 +43,13 @@ export const aboutPageQuery = graphql`
       frontmatter {
         title
         intro
+        cover {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }

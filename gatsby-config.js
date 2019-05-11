@@ -6,14 +6,11 @@ module.exports = {
     description: 'Urban streatware'
   },
   plugins: [
-    // 'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
         postCssPlugins: [
-          // require('postcss-nesting')(),
-          // require('postcss-custom-media')(),
           require(`postcss-preset-env`)({
             stage: 0,
             features: {

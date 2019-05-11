@@ -4,6 +4,7 @@
 /* BASE */
 @import './base/variables.css';
 @import './base/global.css';
+@import './base/scrollbar.css';
 
 /* UTILITIES */
 @import './utilities/sizes.css';

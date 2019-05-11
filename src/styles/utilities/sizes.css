@@ -1,5 +1,13 @@
+.u-pt--1 {
+  padding-top: 1rem;
+}
+
 .u-mt--2 {
   margin-top: 2rem;
+}
+
+.u-mb--6 {
+  margin-bottom: 6rem;
 }
 
 .u-mt-tablet--2 {

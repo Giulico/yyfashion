@@ -1,43 +1,28 @@
-import React from "react";
-import { navigate } from "gatsby-link";
+import React from 'react'
+import { navigate } from 'gatsby-link'
+
+// Components
+import { Grid, GridItem } from '../../components/Grid'
+import Container from '../../components/Container'
+import InputField from '../../components/InputField'
+import Button from '../../components/Button'
 
 function encode(data) {
   return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&')
 }
 
-export default class Index extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { isValidated: false };
-  }
-
-  handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-
-  handleSubmit = e => {
-    e.preventDefault();
-    const form = e.target;
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
-        "form-name": form.getAttribute("name"),
-        ...this.state
-      })
-    })
-      .then(() => navigate(form.getAttribute("action")))
-      .catch(error => alert(error));
-  };
+class Contact extends React.Component {
+  state = { isValidated: false }
 
   render() {
+    const { name = '', email = '', message = '' } = this.state
     return (
-      <section className="section">
-        <div className="container">
-          <div className="content">
-            <h1>Contact</h1>
+      <Container>
+        <h1>Contact</h1>
+        <Grid className="u-pt--1">
+          <GridItem large>
             <form
               name="contact"
               method="post"
@@ -50,63 +35,60 @@ export default class Index extends React.Component {
               <input type="hidden" name="form-name" value="contact" />
               <div hidden>
                 <label>
-                  Don’t fill this out:{" "}
+                  Don’t fill this out:{' '}
                   <input name="bot-field" onChange={this.handleChange} />
                 </label>
               </div>
-              <div className="field">
-                <label className="label" htmlFor={"name"}>
-                  Your name
-                </label>
-                <div className="control">
-                  <input
-                    className="input"
-                    type={"text"}
-                    name={"name"}
-                    onChange={this.handleChange}
-                    id={"name"}
-                    required={true}
-                  />
-                </div>
-              </div>
-              <div className="field">
-                <label className="label" htmlFor={"email"}>
-                  Email
-                </label>
-                <div className="control">
-                  <input
-                    className="input"
-                    type={"email"}
-                    name={"email"}
-                    onChange={this.handleChange}
-                    id={"email"}
-                    required={true}
-                  />
-                </div>
-              </div>
-              <div className="field">
-                <label className="label" htmlFor={"message"}>
-                  Message
-                </label>
-                <div className="control">
-                  <textarea
-                    className="textarea"
-                    name={"message"}
-                    onChange={this.handleChange}
-                    id={"message"}
-                    required={true}
-                  />
-                </div>
-              </div>
-              <div className="field">
-                <button className="button is-link" type="submit">
-                  Send
-                </button>
-              </div>
+              <InputField
+                label="Il tuo nome"
+                name="name"
+                type="text"
+                onChange={this.handleChange}
+                hasContent={name.length > 0}
+                required
+              />
+              <InputField
+                label="La tua email"
+                name="email"
+                type="email"
+                onChange={this.handleChange}
+                hasContent={email.length > 0}
+                required
+              />
+              <InputField
+                label="Il tuo messaggio"
+                name="message"
+                type="textarea"
+                onChange={this.handleChange}
+                hasContent={message.length > 0}
+                required
+              />
+              <Button type="submit">Invia</Button>
             </form>
-          </div>
-        </div>
-      </section>
-    );
+          </GridItem>
+        </Grid>
+      </Container>
+    )
+  }
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
+  handleSubmit = e => {
+    e.preventDefault()
+    const form = e.target
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': form.getAttribute('name'),
+        ...this.state
+      })
+    })
+      .then(() => navigate(form.getAttribute('action')))
+      .catch(error => alert(error))
   }
 }
+
+export default Contact

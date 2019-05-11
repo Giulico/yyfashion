@@ -1,0 +1,35 @@
+.root {
+  position: relative;
+  display: block;
+  margin-bottom: 3rem;
+}
+
+.label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: var(--z-index-base);
+  pointer-events: none;
+  transition: transform 0.3s ease-in-out;
+}
+
+.pinned .label {
+  transform: translateY(-1rem);
+}
+
+.input,
+.textarea {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  border: 0;
+  border-bottom: 1px solid var(--white);
+  background-color: transparent;
+  color: var(--white);
+  outline: 0 none;
+  font-size: 1rem;
+
+  &:focus + .label {
+    transform: translateY(-1rem);
+  }
+}
