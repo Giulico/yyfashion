@@ -2,17 +2,21 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
-const AboutPage = ({ data }) => {
-  const { markdownRemark: post } = data
+// Components
+import Container from '../components/Container'
 
-  return <p>About page</p>
-  // return (
-  //   <AboutPageTemplate
-  //     contentComponent={HTMLContent}
-  //     title={post.frontmatter.title}
-  //     content={post.html}
-  //   />
-  // )
+const AboutPage = ({ data }) => {
+  const { frontmatter } = data.markdownRemark
+  const { title, intro, body } = frontmatter
+  console.log(frontmatter)
+
+  return (
+    <Container>
+      <h1>{title}</h1>
+      <h2>{intro}</h2>
+      <p>{body}</p>
+    </Container>
+  )
 }
 
 AboutPage.propTypes = {
@@ -27,6 +31,8 @@ export const aboutPageQuery = graphql`
       html
       frontmatter {
         title
+        intro
+        body
       }
     }
   }
