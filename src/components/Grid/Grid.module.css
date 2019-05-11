@@ -7,5 +7,6 @@
     flex-wrap: wrap;
     perspective: 100vw;
     overflow: hidden;
+    justify-content: space-around;
   }
 }

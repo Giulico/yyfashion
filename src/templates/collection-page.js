@@ -24,7 +24,11 @@ export const CollectionPage = ({ data }) => {
           })
           const revealEffect = isOdd ? 'a-fade-in-up-odd' : 'a-fade-in-up'
           return (
-            <GridItem key={index} className={gridItemClasses}>
+            <GridItem
+              key={index}
+              className={gridItemClasses}
+              large={item.image.childImageSharp.fluid.aspectRatio > 1}
+            >
               <Reveal effect={revealEffect}>
                 <Card
                   modifier="product"
@@ -61,6 +65,7 @@ export const CollectionPageQuery = graphql`
             childImageSharp {
               fluid(maxWidth: 2048, quality: 100) {
                 ...GatsbyImageSharpFluid
+                presentationWidth
               }
             }
           }

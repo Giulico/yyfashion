@@ -1,6 +1,7 @@
 .main {
   margin: 100px var(--space) 0px;
+
   @media (--tablet) {
-    margin: 80px var(--space) 0px;
+    margin: 80px calc(var(--space) * 4) 0px;
   }
 }

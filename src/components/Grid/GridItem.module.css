@@ -1,5 +1,10 @@
 @media (--tablet) {
   .root {
-    flex: 0 1 50%;
+    flex: 0 1 40%;
+    align-self: center;
+
+    &.large {
+      flex: 0 1 50%;
+    }
   }
 }
