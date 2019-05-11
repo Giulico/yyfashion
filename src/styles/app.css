@@ -7,6 +7,7 @@
 
 /* UTILITIES */
 @import './utilities/sizes.css';
+@import './utilities/text.css';
 
 /* ANIMATIONS */
 @import './animations/animations.css';
