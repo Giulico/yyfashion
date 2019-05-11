@@ -10,6 +10,16 @@
   margin-bottom: 6rem;
 }
 
+.u-ml--2 {
+  margin-left: 2rem;
+}
+
+.u-ml-desktop--4 {
+  @media (--desktop) {
+    margin-left: 4rem;
+  }
+}
+
 .u-mt-tablet--2 {
   @media (--tablet) {
     margin-top: 2rem;

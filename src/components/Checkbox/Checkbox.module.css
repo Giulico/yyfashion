@@ -1,0 +1,40 @@
+.root {
+  position: relative;
+}
+
+.input {
+  visibility: hidden;
+}
+
+.label {
+  padding-left: 10px;
+  cursor: pointer;
+
+  &::after,
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    content: '';
+  }
+
+  &::after {
+    top: 4px;
+    left: 4px;
+    z-index: calc(var(--z-index-base) + 1);
+    width: 8px;
+    height: 8px;
+    background-color: var(--black);
+  }
+
+  &::before {
+    z-index: var(--z-index-base);
+    border: 2px solid var(--white);
+  }
+}
+
+.input:checked + .label::after {
+  background-color: var(--white);
+}

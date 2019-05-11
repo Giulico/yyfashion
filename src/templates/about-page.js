@@ -16,7 +16,7 @@ const AboutPage = ({ data }) => {
       <FixedBackground alt={title} image={cover.childImageSharp.fluid} />
       <Container>
         <h1>{title}</h1>
-        <Grid>
+        <Grid className="u-pt--1 u-ml--2 u-ml-desktop--4" left>
           <GridItem large>
             <p className="u-text--large">{intro}</p>
             <div

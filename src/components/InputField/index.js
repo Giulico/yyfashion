@@ -10,7 +10,6 @@ const InputField = ({
   id = name,
   label,
   type,
-  value,
   onChange,
   required,
   hasContent
@@ -44,6 +43,15 @@ const InputField = ({
       </label>
     </div>
   )
+}
+
+InputField.propTypes = {
+  name: PropTypes.string.isRequired,
+  id: PropTypes.string,
+  label: PropTypes.string,
+  type: PropTypes.string,
+  onChange: PropTypes.func,
+  required: PropTypes.bool
 }
 
 export default InputField

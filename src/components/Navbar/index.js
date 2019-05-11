@@ -37,7 +37,7 @@ const Navbar = class extends React.Component {
               Collezione
             </NavbarItem>
             <NavbarItem className="navbar-item" to="/contact" index={3}>
-              Contattaci
+              Contatti
             </NavbarItem>
           </ul>
         </div>
