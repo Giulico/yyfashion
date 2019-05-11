@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
+import ReactPlayer from 'react-player'
 import { graphql } from 'gatsby'
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax'
 
@@ -21,12 +22,31 @@ export const IndexPageTemplate = ({
   image3,
   footer
 }) => {
+  const wW = typeof window !== 'undefined' ? window.innerWidth : 1000
+  const width = wW * 0.63
+  const height = width * 0.56
   return (
     <>
       <ParallaxProvider>
         <Hero alt={title} hero={hero} />
         <Parallax y={[-20, 20]} className={style.video}>
-          <Img fluid={video.childImageSharp.fluid} />
+          <div className={style.video}>
+            <ReactPlayer
+              url={'https://vimeo.com/335569055'}
+              controls={false}
+              playing={true}
+              loop={true}
+              width={width}
+              height={height}
+              config={{
+                vimeo: {
+                  playerOptions: {
+                    background: true
+                  }
+                }
+              }}
+            />
+          </div>
         </Parallax>
         <div className={style.image1}>
           <Img fluid={image1.childImageSharp.fluid} />
