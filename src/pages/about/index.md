@@ -1,6 +1,6 @@
 ---
 templateKey: about-page
-title: About our values
+title: About us
 intro: >-
   Yellow&Yellow nasce dall'intuizione di tre amici che, innamorati di un vecchio
   marchio statunitense, negli anni Ottanta lo acquistano e lo conservano nel
