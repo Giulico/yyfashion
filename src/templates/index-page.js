@@ -32,7 +32,7 @@ export const IndexPageTemplate = ({
         <Parallax y={[-20, 20]} className={style.video}>
           <div className={style.video}>
             <ReactPlayer
-              url={'https://vimeo.com/335569055'}
+              url={video.publicURL}
               controls={false}
               playing={true}
               loop={true}
@@ -118,11 +118,9 @@ export const pageQuery = graphql`
           }
         }
         video {
-          childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
+          name
+          absolutePath
+          publicURL
         }
         image1 {
           childImageSharp {
