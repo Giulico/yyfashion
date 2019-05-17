@@ -23,6 +23,7 @@ const getTransitionStyles = {
 class Transition extends React.PureComponent {
   render() {
     const { children, location } = this.props
+    const pathname = location ? location.pathname : '/'
 
     return (
       <TransitionGroup>
