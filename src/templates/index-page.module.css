@@ -1,12 +1,11 @@
 .video {
   position: relative;
   z-index: var(--z-index-base);
-  max-width: 80%;
+  max-width: calc(90% + 16px);
   margin: 85vh auto 0;
-}
 
-@media (--desktop) {
-  .video {
+  @media (--desktop) {
+    max-width: 80%;
     margin: 95vh auto 0;
   }
 }

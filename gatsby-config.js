@@ -8,10 +8,11 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     {
-      resolve: `gatsby-plugin-postcss`,
+      resolve: 'gatsby-plugin-postcss',
       options: {
         postCssPlugins: [
-          require(`postcss-preset-env`)({
+          require('postcss-for'),
+          require('postcss-preset-env')({
             stage: 0,
             features: {
               'nesting-rules': true

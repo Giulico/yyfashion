@@ -13,11 +13,12 @@ import store from '../../store'
 
 // Components
 import Logo from '../Logo'
+import Transition from '../Transition'
 
 // Img
 import LogoImg from '../../assets/images/yy-logo.jpg'
 
-const Layout = ({ children, pageContext }) => {
+const Layout = ({ children, location, pageContext }) => {
   const { title, description } = useSiteMetadata()
   if (pageContext && pageContext.template === 'index-page') {
     store.initialState.logo.pinned = true
@@ -60,7 +61,9 @@ const Layout = ({ children, pageContext }) => {
         <meta property="og:image" content="/img/og-image.jpg" />
       </Helmet>
       <Navbar />
-      <div className={style.main}>{children}</div>
+      <div className={style.main}>
+        <Transition location={location}>{children}</Transition>
+      </div>
     </Provider>
   )
 }

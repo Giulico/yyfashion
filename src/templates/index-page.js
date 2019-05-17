@@ -23,7 +23,8 @@ export const IndexPageTemplate = ({
   footer
 }) => {
   const wW = typeof window !== 'undefined' ? window.innerWidth : 1000
-  const width = wW * 0.63
+  const isMobile = wW < 1024
+  const width = isMobile ? wW * 0.8 : wW * 0.63
   const height = width * 0.56
   return (
     <>
