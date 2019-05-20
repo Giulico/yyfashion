@@ -24,7 +24,7 @@ class Contact extends React.Component {
     return (
       <Container>
         <h1>Contatti</h1>
-        <Grid className="u-pt--1 u-ml--2 u-ml-desktop--4" left>
+        <Grid className="u-py--1 u-mx--2 u-mx-desktop--4" left>
           <GridItem large>
             {thankYou ? (
               <div>
@@ -76,9 +76,10 @@ class Contact extends React.Component {
                   required
                 />
                 <Checkbox name="privacy" onChange={this.handleChange} required>
-                  dichiaro di aver letto bla blabla
+                  dichiaro di aver letto e di accettare le informazioni sulla
+                  privacy
                 </Checkbox>
-                <div className="u-text--right">
+                <div className="u-text--right u-mt--2">
                   <Button type="submit">Invia</Button>
                 </div>
               </form>

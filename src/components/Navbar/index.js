@@ -1,12 +1,12 @@
 import React from 'react'
 import classNames from 'classnames'
-import NavbarItem from './NavbarItem'
 
 // Style
 import style from './Navbar.module.css'
 
 // Components
 import Burger from '../Burger'
+import NavbarItem from './NavbarItem'
 
 const Navbar = class extends React.Component {
   state = {
@@ -30,19 +30,40 @@ const Navbar = class extends React.Component {
 
         <div className={navbarClasses}>
           <ul className={style.items}>
-            <NavbarItem className="navbar-item" to="/about" index={1}>
+            <NavbarItem
+              className="navbar-item"
+              onClick={this.itemClickHandler}
+              to="/about"
+              index={1}
+            >
               Chi siamo
             </NavbarItem>
-            <NavbarItem className="navbar-item" to="/collection" index={2}>
+            <NavbarItem
+              className="navbar-item"
+              onClick={this.itemClickHandler}
+              to="/collection"
+              index={2}
+            >
               Collezione
             </NavbarItem>
-            <NavbarItem className="navbar-item" to="/contact" index={3}>
+            <NavbarItem
+              className="navbar-item"
+              onClick={this.itemClickHandler}
+              to="/contact"
+              index={3}
+            >
               Contatti
             </NavbarItem>
           </ul>
         </div>
       </nav>
     )
+  }
+
+  itemClickHandler = e => {
+    this.setState({
+      active: false
+    })
   }
 
   toggleHamburger = () => {
