@@ -22,10 +22,6 @@ export const IndexPageTemplate = ({
   image3,
   footer
 }) => {
-  const wW = typeof window !== 'undefined' ? window.innerWidth : 1000
-  const isMobile = wW < 1024
-  const width = isMobile ? wW * 0.8 : wW * 0.63
-  const height = width * 0.56
   return (
     <>
       <ParallaxProvider>
@@ -37,8 +33,8 @@ export const IndexPageTemplate = ({
               controls={false}
               playing={true}
               loop={true}
-              width={width}
-              height={height}
+              width={'100%'}
+              height={'100%'}
               config={{
                 vimeo: {
                   playerOptions: {

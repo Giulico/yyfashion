@@ -14,10 +14,8 @@
   position: relative;
   max-width: 73%;
   margin: 5% 0 0 20%;
-}
 
-@media (--desktop) {
-  .image1 {
+  @media (--desktop) {
     margin: 15% 0 0 20%;
   }
 }
@@ -26,10 +24,8 @@
   position: relative;
   max-width: 63%;
   margin: 5% 0 0 14%;
-}
 
-@media (--desktop) {
-  .image2 {
+  @media (--desktop) {
     margin: 10% 0 0 14%;
   }
 }
@@ -38,10 +34,8 @@
   position: relative;
   max-width: 80%;
   margin: 10% 10%;
-}
 
-@media (--desktop) {
-  .image3 {
+  @media (--desktop) {
     margin: 15% 10%;
   }
 }
