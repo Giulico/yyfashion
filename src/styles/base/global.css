@@ -7,6 +7,10 @@ body {
   font-weight: var(--font-weight-base);
 }
 
+a {
+  color: var(--primary);
+}
+
 h1,
 h2,
 h3,

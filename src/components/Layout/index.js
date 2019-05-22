@@ -3,6 +3,7 @@ import Helmet from 'react-helmet'
 import Navbar from '../Navbar'
 import useSiteMetadata from '../SiteMetadata'
 import Provider from 'redhooks'
+import { Link } from 'gatsby'
 
 // Styles
 import '../../styles/app.css'
@@ -17,6 +18,7 @@ import Transition from '../Transition'
 
 // Img
 import LogoImg from '../../assets/images/yy-logo.jpg'
+import CookieConsent from 'react-cookie-consent'
 
 const Layout = ({ children, location, pageContext }) => {
   const { title, description } = useSiteMetadata()
@@ -64,6 +66,22 @@ const Layout = ({ children, location, pageContext }) => {
       <div className={style.main}>
         <Transition location={location}>{children}</Transition>
       </div>
+      <CookieConsent
+        location="bottom"
+        buttonText="Accetto"
+        cookieName="yyfashion-cookie-law"
+        style={{
+          background: '#000000',
+          margin: '10px 10%',
+          padding: '10px',
+          width: '80%'
+        }}
+        buttonStyle={{ color: '#000000', fontSize: '14px' }}
+        expires={150}
+      >
+        Utilizziamo i <Link to="/cookie">cookie</Link> per migliorare
+        l'esperienza utenti.
+      </CookieConsent>
     </Provider>
   )
 }
