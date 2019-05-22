@@ -1,5 +1,5 @@
 ---
-templateKey: privacy-page
+templateKey: generic-page
 title: Privacy
 ---
 

@@ -1,5 +1,5 @@
 ---
-templateKey: cookie-page
+templateKey: generic-page
 title: Cookie
 ---
 
