@@ -1,4 +1,4 @@
-.video {
+.videoContainer {
   position: relative;
   z-index: var(--z-index-base);
   max-width: calc(90% + 16px);
@@ -8,6 +8,10 @@
     max-width: 80%;
     margin: 95vh auto 0;
   }
+}
+
+.video {
+  width: 100%;
 }
 
 .image1 {

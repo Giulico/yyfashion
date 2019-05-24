@@ -11,19 +11,14 @@ const PrivacyPage = ({ data }) => {
   const { title } = frontmatter
 
   return (
-    <>
-      <Container>
-        <h1>{title}</h1>
-        <Grid className="u-pt--1 u-ml--2 u-ml-desktop--4" left>
-          <GridItem large>
-            <div
-              className="u-mb--6"
-              dangerouslySetInnerHTML={{ __html: html }}
-            />
-          </GridItem>
-        </Grid>
-      </Container>
-    </>
+    <Container>
+      <h1>{title}</h1>
+      <Grid className="u-pt--1 u-ml--2 u-ml-desktop--4" left>
+        <GridItem large>
+          <div className="u-mb--6" dangerouslySetInnerHTML={{ __html: html }} />
+        </GridItem>
+      </Grid>
+    </Container>
   )
 }
 

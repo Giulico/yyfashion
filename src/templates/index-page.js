@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { useEffect, useCallback, createRef } from 'react'
 import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
-import ReactPlayer from 'react-player'
 import { graphql } from 'gatsby'
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax'
 
@@ -22,28 +21,25 @@ export const IndexPageTemplate = ({
   image3,
   footer
 }) => {
+  const videoRef = createRef()
+
+  const handleVideoLoad = useCallback(() => {
+    videoRef.current.play()
+  }, [videoRef.current])
+
+  useEffect(() => {
+    videoRef.current.addEventListener('canplay', handleVideoLoad, false)
+  }, [])
+
   return (
     <>
       <ParallaxProvider>
         <Hero alt={title} hero={hero} />
-        <Parallax y={[-20, 20]} className={style.video}>
-          <div className={style.video}>
-            <ReactPlayer
-              url={video.publicURL}
-              controls={false}
-              playing={true}
-              loop={true}
-              width={'100%'}
-              height={'100%'}
-              config={{
-                vimeo: {
-                  playerOptions: {
-                    background: true
-                  }
-                }
-              }}
-            />
-          </div>
+        <Parallax y={[-20, 20]} className={style.videoContainer}>
+          <video className={style.video} autoPlay loop ref={videoRef}>
+            <source src={video.publicURL} type="video/mp4" />
+            Questo browser non supporta il tag video
+          </video>
         </Parallax>
         <div className={style.image1}>
           <Img fluid={image1.childImageSharp.fluid} />
