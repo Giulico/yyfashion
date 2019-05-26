@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, createRef } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 import { graphql } from 'gatsby'
@@ -12,31 +12,37 @@ import Card from '../components/Card'
 // Style
 import style from './index-page.module.css'
 
-export const IndexPageTemplate = ({
-  title,
-  hero,
-  video,
-  image1,
-  image2,
-  image3,
-  footer
-}) => {
-  const videoRef = createRef()
+class IndexPage extends React.Component {
+  componentDidMount() {
+    this.videoRef.addEventListener('canplay', this.handleVideoLoad, false)
+  }
 
-  const handleVideoLoad = useCallback(() => {
-    videoRef.current.play()
-  }, [videoRef.current])
+  componentWillUnmount() {
+    this.videoRef.removeEventListener('canplay', this.handleVideoLoad)
+  }
 
-  useEffect(() => {
-    videoRef.current.addEventListener('canplay', handleVideoLoad, false)
-  }, [])
+  render() {
+    const { data } = this.props
+    const {
+      title,
+      hero,
+      video,
+      image1,
+      image2,
+      image3,
+      footer
+    } = data.markdownRemark.frontmatter
 
-  return (
-    <>
+    return (
       <ParallaxProvider>
         <Hero alt={title} hero={hero} />
         <Parallax y={[-20, 20]} className={style.videoContainer}>
-          <video className={style.video} autoPlay loop ref={videoRef}>
+          <video
+            className={style.video}
+            autoPlay
+            loop
+            ref={c => (this.videoRef = c)}
+          >
             <source src={video.publicURL} type="video/mp4" />
             Questo browser non supporta il tag video
           </video>
@@ -58,34 +64,12 @@ export const IndexPageTemplate = ({
           fluid={footer.childImageSharp.fluid}
         />
       </ParallaxProvider>
-    </>
-  )
-}
+    )
+  }
 
-IndexPageTemplate.propTypes = {
-  title: PropTypes.string,
-  hero: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  video: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  image1: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  image2: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  image3: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  footer: PropTypes.oneOfType([PropTypes.object, PropTypes.string])
-}
-
-const IndexPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
-
-  return (
-    <IndexPageTemplate
-      title={frontmatter.title}
-      hero={frontmatter.hero}
-      video={frontmatter.video}
-      image1={frontmatter.image1}
-      image2={frontmatter.image2}
-      image3={frontmatter.image3}
-      footer={frontmatter.footer}
-    />
-  )
+  handleVideoLoad = e => {
+    this.videoRef.play()
+  }
 }
 
 IndexPage.propTypes = {
@@ -98,8 +82,8 @@ IndexPage.propTypes = {
 
 export default IndexPage
 
-export const pageQuery = graphql`
-  query IndexPageTemplate {
+export const indexPageQuery = graphql`
+  query IndexPage {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
         title
@@ -143,27 +127,6 @@ export const pageQuery = graphql`
             }
           }
         }
-        # heading
-        # subheading
-        # mainpitch {
-        #   title
-        #   description
-        # }
-        # description
-        # intro {
-        #   blurbs {
-        #     image {
-        #       childImageSharp {
-        #         fluid(maxWidth: 240, quality: 64) {
-        #           ...GatsbyImageSharpFluid
-        #         }
-        #       }
-        #     }
-        #     text
-        #   }
-        #   heading
-        #   description
-        # }
       }
     }
   }
