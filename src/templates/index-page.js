@@ -41,6 +41,7 @@ class IndexPage extends React.Component {
             className={style.video}
             autoPlay
             loop
+            muted
             ref={c => (this.videoRef = c)}
           >
             <source src={video.publicURL} type="video/mp4" />
