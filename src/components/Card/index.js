@@ -2,6 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
+import { Link } from 'gatsby'
 
 // Components
 import Button from '../Button'
@@ -17,12 +18,14 @@ const Card = ({ cta, ctaSrc, ctaIcon, fluid, className, modifier }) => {
   })
 
   return (
-    <figure className={classes}>
-      <Img fluid={fluid} />
-      <figcaption className={style.caption}>
-        <Button to={ctaSrc}>{cta}</Button>
-      </figcaption>
-    </figure>
+    <Link to={ctaSrc}>
+      <figure className={classes}>
+        <Img fluid={fluid} />
+        <figcaption className={style.caption}>
+          <Button onClick={() => false}>{cta}</Button>
+        </figcaption>
+      </figure>
+    </Link>
   )
 }
 
