@@ -16,7 +16,11 @@ module.exports = {
             stage: 0,
             features: {
               'nesting-rules': true
-            }
+            },
+            importFrom: [
+              'src/styles/base/custom-media.css',
+              'src/styles/base/variables.css'
+            ]
           })
         ]
       }
