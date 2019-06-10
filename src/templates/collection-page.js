@@ -33,7 +33,7 @@ export const CollectionPage = ({ data }) => {
                 <Card
                   modifier="product"
                   cta="Shop now"
-                  ctaSrc="/collezione"
+                  ctaSrc={item.link}
                   fluid={item.image.childImageSharp.fluid}
                 />
               </Reveal>

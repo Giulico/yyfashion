@@ -17,15 +17,19 @@ const Card = ({ cta, ctaSrc, ctaIcon, fluid, className, modifier }) => {
     [style[modifier]]: modifier
   })
 
-  return (
-    <Link to={ctaSrc}>
-      <figure className={classes}>
-        <Img fluid={fluid} />
-        <figcaption className={style.caption}>
-          <Button onClick={() => false}>{cta}</Button>
-        </figcaption>
-      </figure>
-    </Link>
+  const content = (
+    <figure className={classes}>
+      <Img fluid={fluid} />
+      <figcaption className={style.caption}>
+        <Button onClick={() => false}>{cta}</Button>
+      </figcaption>
+    </figure>
+  )
+
+  return ctaSrc.startsWith('http') ? (
+    <a href={ctaSrc}>{content}</a>
+  ) : (
+    <Link to={ctaSrc}>{content}</Link>
   )
 }
 
