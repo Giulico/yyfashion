@@ -1,6 +1,6 @@
 ---
 templateKey: about-page
-title: About us
+title: Chi siamo
 cover: /img/about-cover.jpg
 intro: >-
   Yellow&Yellow nasce dall'intuizione di tre amici che, innamorati di un vecchio
