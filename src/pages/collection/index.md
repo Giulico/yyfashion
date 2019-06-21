@@ -23,5 +23,7 @@ items:
   - image: /img/10.jpg
     link: >-
       https://yellowandyellowfashion.myshopify.com/products/maglietta-a-maniche-corte
+  - image: /img/t-shirt-yyfashion.jpg
+    link: 'https://shop.yellowandyellowfashion.it/products/maglietta-a-maniche-corte'
 ---
 
